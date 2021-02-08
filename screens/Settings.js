@@ -1,10 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+const Variant = () => {
+  let vari = (8127 % 6) + 1
+
+  return <Text>variant - {vari}</Text>
+}
+
 const Settings = () => {
   return (
     <View style={styles.container}>
-      <Text>Settings</Text>
+      <Text>lab 2</Text>
+      <Variant />
     </View>
   )
 }

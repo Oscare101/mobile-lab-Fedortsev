@@ -1,39 +1,25 @@
-# lab 1.1 mobile app by Fedortsev
+# lab 1.2 mobile app by Fedortsev
 
-## create app by comand
+check my variant `(8127 / 2 + 1) & 1 ? 1 : 2` = 2
 
-`npx create-react-native-app mobile-lab`
+## create parameters degree, minutes, seconds and path (N/S/W/E)
 
-I am using react-native technology, was downloaded from official website
+which values fill in their diapasons
 
-## creating icon
+## create script to translate to another coordinate sistem
 
-in react native we can not create icon, so i made it in figma
+> longsec = (sec / 60) \* 100
+>
+> longmin = (min + longsec / 100) / 60
+>
+> long = degrees + longmin
+>
+> long = long.toFixed(6)`
 
-[my icon](https://www.figma.com/file/knavGLyGUNVQ3uwNwNxl1D/Untitled?node-id=0%3A1) - open it in Figma
+## create element to output this parameters
 
-## Navigation
+create element `<Text>`
 
-was created by library react navigation
+![example](img/1.2coor.jpg)
 
-`npm install @react-navigation/native`
-
-for example will use bottom tab navigation
-
-`npm install @react-navigation/bottom-tabs`
-
-## start app
-
-`expo start`
-
-I am using expo for start app in local server on my PC and phone at the same time, it makes develop easier
-
-## add gitignore
-
-was created by comand `git init`
-
-## app output
-
-we can see bottom navigation and two screens: Home and Settings
-
-![alt text](img/1.1.jpg 'Описание будет тут')
+## create gitignore, commit and push to git
