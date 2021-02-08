@@ -1,0 +1,12 @@
+{
+  "name": "mobile-lab",
+  "displayName": "mobile-lab",
+  "expo": {
+    "name": "mobile-lab",
+    "slug": "mobile-lab",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
