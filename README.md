@@ -1,25 +1,19 @@
-# lab 1.2 mobile app by Fedortsev
+# lab 2 mobile app by Fedortsev
 
-check my variant `(8127 / 2 + 1) & 1 ? 1 : 2` = 2
+check my variant `(8127 % 6 + 1)` = 4
 
-## create parameters degree, minutes, seconds and path (N/S/W/E)
+create new component for this laboratiry work
 
-which values fill in their diapasons
+install new library - `npm install --save react-native-chart-kit` which can create chart and graphics
 
-## create script to translate to another coordinate sistem
+## create script in library react-native-chart-kit
 
-> longsec = (sec / 60) \* 100
->
-> longmin = (min + longsec / 100) / 60
->
-> long = degrees + longmin
->
-> long = long.toFixed(6)`
+create element `<LineChart>` and `<PieChart>` and put them their parameters like :
 
-## create element to output this parameters
+data, value, view parameters, % (in circle diagram)
 
-create element `<Text>`
+example of output:
 
-![example](img/1.2coor.jpg)
+![example](img/2.jpg)
 
 ## create gitignore, commit and push to git

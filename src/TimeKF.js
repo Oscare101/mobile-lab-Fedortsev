@@ -14,7 +14,6 @@ let minusMin, plusMin, plusHour, minusHour
 const Plus = () => {
   plusMin = min + plus
   plusHour = hours
-  console.log(plusMin)
   if (plusMin > 60) {
     plusMin = plusMin - 60
     plusHour = plusHour + 1
