@@ -1,4 +1,4 @@
-# lab 1.1 mobile app by Fedortsev
+# lab 1.1 mobile app by Fedortsev IO-81
 
 ## create app by comand
 
