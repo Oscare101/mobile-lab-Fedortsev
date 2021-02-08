@@ -1,19 +1,30 @@
-# lab 2 mobile app by Fedortsev
+# lab 3 mobile app by Fedortsev IO-81
 
-check my variant `(8127 % 6 + 1)` = 4
+check my variant `(8127 % 2 + 1)` = 2
 
-create new component for this laboratiry work
+## create component Books and list of books inside
 
-install new library - `npm install --save react-native-chart-kit` which can create chart and graphics
+create keys img, title, text and price
 
-## create script in library react-native-chart-kit
+<!-- in react native we can not use img source as variable dynamically, so I i chose another way - create value with will be key for another component with images -->
 
-create element `<LineChart>` and `<PieChart>` and put them their parameters like :
+> {
+> img: '1',
+>
+> title: 'English File',
+>
+> text: 'english book for learning grammar. Oxfor edition',
+>
+> price: '30$',
+> },
+> ...
 
-data, value, view parameters, % (in circle diagram)
+## create ScrollView with FlatList inside
+
+use FlatList and Item with `data={Books}` inside to render list of books
 
 example of output:
 
-![example](img/2.jpg)
+![example](img/3.jpg)
 
 ## create gitignore, commit and push to git
