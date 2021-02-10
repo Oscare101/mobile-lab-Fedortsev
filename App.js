@@ -7,7 +7,7 @@ import Lab3 from './screens/Lab3.js'
 import { NavigationContainer } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons'
 const Tab = createBottomTabNavigator()
-import First from './forTest/First'
+import First from './forTest/lab4'
 export default function App() {
   return (
     <NavigationContainer>
@@ -28,7 +28,7 @@ export default function App() {
       >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="lab2" component={Settings} />
-        <Tab.Screen name="lab3" component={Lab3} />
+        <Tab.Screen name="lab3" component={First} />
       </Tab.Navigator>
     </NavigationContainer>
   )

@@ -13,24 +13,10 @@ import {
 } from 'react-native'
 import Books from './Books'
 import { Ionicons } from '@expo/vector-icons'
-
+import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar'
 const Variant = () => {
   let vari = (8127 % 2) + 1
   return <Text>variant - {vari}</Text>
-}
-
-const Img = (num) => {
-  if (num.num == 1) {
-    return <Image source={require('../img/English.png')} style={styles.img} />
-  } else if (num.num == 2) {
-    return <Image source={require('../img/Sherlock.jpeg')} style={styles.img} />
-  } else if (num.num == 3) {
-    return <Image source={require('../img/Adobe.jpeg')} style={styles.img} />
-  } else if (num.num == 4) {
-    return <Image source={require('../img/Kay.jpeg')} style={styles.img} />
-  } else if (num.num == 5) {
-    return <Image source={require('../img/Clean.jpeg')} style={styles.img} />
-  }
 }
 
 const Item = ({ img, title, text, price, review, author }) => {
@@ -84,33 +70,95 @@ const Item = ({ img, title, text, price, review, author }) => {
   )
 }
 
-const Lab3 = () => {
-  const renderItem = ({ item }) => (
-    <Item
-      img={item.img}
-      title={item.title}
-      price={item.price}
-      text={item.text}
-      review={item.review}
-      author={item.author}
-    />
-  )
+class Lab3 extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      query: null,
+      dataSource: [],
+      dataBackup: [],
+    }
+  }
 
-  return (
-    <View style={styles.container}>
-      <Text>lab 4</Text>
-      <Variant />
-      <View style={{ flexDirection: 'row' }}></View>
+  componentDidMount() {
+    let data = Books
+    this.setState({
+      dataBackup: data,
+      dataSource: data,
+    })
+  }
 
-      <ScrollView>
-        <FlatList
-          data={Books}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => renderItem({ item })}
+  filterItem = (event) => {
+    let query = event.nativeEvent.text
+    this.setState({
+      query: query,
+    })
+    if (query == '') {
+      this.setState({
+        dataSource: this.state.dataBackup,
+      })
+    } else {
+      var data = this.state.dataBackup
+      query = query.toLowerCase()
+      data = data.filter((l) => l.name.toLowerCase().match(query))
+
+      this.setState({
+        dataSource: data,
+      })
+    }
+  }
+
+  separator = () => {
+    return (
+      <View>
+        <Text>-----------------</Text>
+      </View>
+    )
+  }
+
+  render() {
+    const renderItem = ({ item }) => (
+      <Item
+        img={item.img}
+        title={item.title}
+        price={item.price}
+        text={item.text}
+        review={item.review}
+        author={item.author}
+      />
+    )
+
+    return (
+      <View style={styles.container}>
+        <Text>lab 4</Text>
+        <Variant />
+        <View style={{ flexDirection: 'row' }}></View>
+        <TextInput
+          placeholder="search"
+          style={styles.input}
+          value={this.state.query}
+          onChangeText={this.filterItem.bind(this)}
         />
-      </ScrollView>
-    </View>
-  )
+        <ScrollView>
+          <FlatList
+            data={this.state.dataSource}
+            ItemSeparatorComponent={() => this.separator()}
+            // keyExtractor={(item) => item.id}
+            renderItem={({ item, index }) => {
+              return (
+                <View style={styles.block}>
+                  <Image source={item.img} />
+                  <Text>{item.title}</Text>
+                </View>
+              )
+            }}
+            // renderItem={renderItem}
+            // ListEmptyComponent={() => <Text>No results</Text>}
+          />
+        </ScrollView>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

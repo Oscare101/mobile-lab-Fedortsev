@@ -18,14 +18,20 @@ button -> `onPress={() => setModalVisible(true)}`
 
 example:
 
-![example](img/4bookscreen.jpg)
+![example](img/4list.jpg)
 
 ## create search bar
 
-create element `<TextInput>` with parameter `onChangeText` and give it valey (text) - our input. This parameter will read text every change and resolve FlatList using property renderItem
+create element `<TextInput>` with parameter `onChangeText` and give it valey (text) - our input. This parameter will read text every change and resolve `FlatList` using `setState` to rerender list of books. Property `event.nativeEvent.text` which search thought the list and return new data for new list. The changing of list goes automaticaly without button
 
 example of output:
 
-![example](img/4.jpg)
+![example](img/4search.jpg)
+
+After touch on list item will open a screen with moreinformation about book. There are image, price, author and `ScrollView` with more information, and close-button to go back to the list
+
+example.
+
+![example](img/4buy.jpg)
 
 ## create gitignore, commit and push to git

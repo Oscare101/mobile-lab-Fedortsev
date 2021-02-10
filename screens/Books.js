@@ -1,8 +1,8 @@
 const Books = [
   {
-    img: '1',
+    img: '2',
     title: 'English File',
-    text: 'english book for learning grammar. Oxfor edition',
+    letter: 'english book for learning grammar. Oxfor edition',
     price: '30$',
     review:
       'This book is written for learning English, suitable for all levels, a textbook with assignments is attached, access to a site with audio and video material for additional study',
@@ -11,34 +11,34 @@ const Books = [
   {
     img: '2',
     title: 'Sherlock Holmes',
-    text: 'Thegreatest book about the gretes detective',
+    letter: 'Thegreatest book about the gretes detective',
     price: '25$',
     review:
       'The layout of The Sherlock Holmes Book is easy to follow and intuitive. The section breakdown – Introduction, Early Adventures, The Great Detective, A Legend Returns, Holmes Takes a Bow, The Final Deductions, and The World of Sherlock Holmes – takes the reader logically and chronologically through the cases.',
     author: 'Arthur Conan Doyle',
   },
   {
-    img: '3',
+    img: '2',
     title: 'Abody Photoshop CS5',
-    text: 'tutorial for photoshop',
+    letter: 'tutorial for photoshop',
     price: '50$',
     review:
       'Creative professionals seeking the fastest, easiest, most comprehensive way to learn Adobe Photoshop CS5 choose Adobe Photoshop CS5 Classroom in a Book from the Adobe Creative Team at Adobe Press. The 14 project-based lessons in this book show readers step-by-step the key techniques for working in Photoshop CS5. In addition to learning the key elements of the Photoshop interface, this completely revised CS5 edition shows readers how to edit images with precise selection control, correct a wide range of lens-based errors, interactively transform their images with the new Puppet Warp tool, and easily remove or replace image elements with the new Content-Aware Fill mode. The book also covers new powerful painting effects to artistically enhance images and shows how to combine multiple exposures into a single HDR image.',
     author: 'Scott Kelby',
   },
   {
-    img: '4',
+    img: '2',
     title: 'Kaudasheva Simya',
-    text: 'Popular Ukrainian plot of family in countryside',
+    letter: 'Popular Ukrainian plot of family in countryside',
     price: '4$',
     review:
       'The social and everyday story "The Kaidashe Family" is one of the most famous works of the classic of Ukrainian literature Ivan Nechuy-Levytsky. ABOUT THE AUDIO BOOK KAYDASHS FAMILY The work describes the events that take place in a large rural Kaidash family. The book fascinates with colorful characters, genuine humor, funny and witty dialogues, beautiful landscapes and scenes of sincere love. On the example of one Ukrainian family, Ivan Nechuy-Levytsky depicts the Ukrainian national color and shows how the social order, the way of organizing the community, the behavior of the clergy lead to the decline of the human spirit.',
     author: 'Ivan Semyonovich Nechuy-Levitsky',
   },
   {
-    img: '5',
+    img: '2',
     title: 'Clean code - Robert Martin',
-    text:
+    letter:
       'Read with the free Kindle apps (available on iOS, Android, PC & Mac), Kindle E-readers and on Fire',
     price: '28$',
     review:
