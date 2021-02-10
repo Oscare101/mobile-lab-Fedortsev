@@ -1,30 +1,31 @@
-# lab 3 mobile app by Fedortsev IO-81
+# lab 4 mobile app by Fedortsev IO-81
 
 check my variant `(8127 % 2 + 1)` = 2
 
-## create component Books and list of books inside
+## add ney valey to book list
 
-create keys img, title, text and price
+add author and review
 
-<!-- in react native we can not use img source as variable dynamically, so I i chose another way - create value with will be key for another component with images -->
+## create Modal
 
-> {
-> img: '1',
->
-> title: 'English File',
->
-> text: 'english book for learning grammar. Oxfor edition',
->
-> price: '30$',
-> },
-> ...
+after click to button with book Modal is open and you can see screen with more information about book with navigation button to go back
 
-## create ScrollView with FlatList inside
+oppening and closing modal occurs using the useState with parameter modalVisible, which can be changed by setModalVisible
 
-use FlatList and Item with `data={Books}` inside to render list of books
+`const [modalVisible, setModalVisible] = useState(false)`
+
+button -> `onPress={() => setModalVisible(true)}`
+
+example:
+
+![example](img/4bookscreen.jpg)
+
+## create search bar
+
+create element `<TextInput>` with parameter `onChangeText` and give it valey (text) - our input. This parameter will read text every change and resolve FlatList using property renderItem
 
 example of output:
 
-![example](img/3.jpg)
+![example](img/4.jpg)
 
 ## create gitignore, commit and push to git

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   StyleSheet,
   Text,
@@ -6,38 +6,18 @@ import {
   FlatList,
   ScrollView,
   Image,
+  TouchableOpacity,
+  Modal,
+  TextInput,
+  ActivityIndicator,
 } from 'react-native'
 import Books from './Books'
+import { Ionicons } from '@expo/vector-icons'
 
 const Variant = () => {
   let vari = (8127 % 2) + 1
   return <Text>variant - {vari}</Text>
 }
-
-const List = () => {
-  return <Text>qwsxcvbnm</Text>
-}
-
-// for (let i = 0; i < 5; i++) {    // это работает
-//   {
-//     Object.keys(Books[i]).map((list) => {
-//       console.log(list, Books[i][list])
-//     })
-//   }
-// }
-
-// const BookList = () => {       // а это нет
-//   for (let i = 0; i < 5; i++) {//выводит только 1-й элемент и все
-//     {
-//       return Object.keys(Books[i]).map((list) => (
-
-//         <Text key={list}>
-//           {list} - {Books[i][list]}
-//         </Text>
-//       ))
-//     }
-//   }
-// }
 
 const Img = (num) => {
   if (num.num == 1) {
@@ -53,16 +33,56 @@ const Img = (num) => {
   }
 }
 
-const Item = ({ img, title, text, price }) => (
-  <View style={styles.block}>
-    <Img num={img} />
-    <View style={{ flexDirection: 'column', width: '70%' }}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.text}>{text}</Text>
-      <Text style={styles.price}>{price}</Text>
-    </View>
-  </View>
-)
+const Item = ({ img, title, text, price, review, author }) => {
+  const [modalVisible, setModalVisible] = useState(false)
+
+  return (
+    <>
+      <Modal animationType="slide" transparent={false} visible={modalVisible}>
+        <View style={styles.modal}>
+          <Text style={styles.header}>{title}</Text>
+
+          <View style={{ flexDirection: 'row', paddingTop: 20 }}>
+            <View>
+              <Img num={img} style={{ height: 100, width: 100 }} />
+              <TouchableOpacity>
+                <View style={styles.buy}>
+                  <Ionicons name="cart" color="lightblue" size={30} />
+                  <Text style={{ fontSize: 24 }}>{price}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <ScrollView>
+              <Text>Author:{author}</Text>
+              <Text style={{ width: '80%', fontSize: 20 }}>
+                Review: {'\n'} {review} {'\n'}
+              </Text>
+              <View style={{ height: 30 }}></View>
+            </ScrollView>
+          </View>
+
+          <TouchableOpacity
+            onPress={() => setModalVisible(false)}
+            style={styles.close}
+          >
+            <Ionicons name="close" size={50} />
+          </TouchableOpacity>
+        </View>
+      </Modal>
+      <TouchableOpacity
+        style={styles.block}
+        onPress={() => setModalVisible(true)}
+      >
+        <Img num={img} />
+        <View style={{ flexDirection: 'column', width: '70%' }}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.text}>{text}</Text>
+          <Text style={styles.price}>{price}</Text>
+        </View>
+      </TouchableOpacity>
+    </>
+  )
+}
 
 const Lab3 = () => {
   const renderItem = ({ item }) => (
@@ -71,19 +91,22 @@ const Lab3 = () => {
       title={item.title}
       price={item.price}
       text={item.text}
+      review={item.review}
+      author={item.author}
     />
   )
+
   return (
     <View style={styles.container}>
-      <Text>lab 3</Text>
+      <Text>lab 4</Text>
       <Variant />
-      {/* <BookList /> */}
+      <View style={{ flexDirection: 'row' }}></View>
 
       <ScrollView>
         <FlatList
           data={Books}
-          renderItem={renderItem}
           keyExtractor={(item) => item.id}
+          renderItem={({ item }) => renderItem({ item })}
         />
       </ScrollView>
     </View>
@@ -99,7 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   block: {
-    width: '90%',
+    width: '100%',
     borderWidth: 1,
     borderColor: 'grey',
     borderRadius: 5,
@@ -117,7 +140,32 @@ const styles = StyleSheet.create({
   price: {
     color: 'blue',
   },
-  img: { height: 70, width: 70 },
+  img: { height: 100, width: 100 },
+  close: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+  },
+  modal: {
+    padding: 20,
+  },
+  header: {
+    fontSize: 24,
+  },
+  buy: {
+    flexDirection: 'row',
+    borderColor: 'grey',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+  input: {
+    borderColor: 'grey',
+    borderWidth: 1,
+    width: '60%',
+    borderRadius: 5,
+    height: 40,
+    paddingHorizontal: 10,
+  },
 })
 
 export default Lab3
