@@ -36,4 +36,4 @@ was created by comand `git init`
 
 we can see bottom navigation and two screens: Home and Settings
 
-![alt text](img/1.1.jpg 'Описание будет тут')
+![alt text](img/1.1Name.jpg 'Описание будет тут')
