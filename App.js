@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from './screens/Home'
+import Lab5 from './screens/Lab5'
 import Settings from './screens/Settings'
 import Lab3 from './screens/Lab3.js'
 import { NavigationContainer } from '@react-navigation/native'
@@ -29,6 +30,7 @@ export default function App() {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="lab2" component={Settings} />
         <Tab.Screen name="lab3" component={First} />
+        <Tab.Screen name="lab5" component={Lab5} />
       </Tab.Navigator>
     </NavigationContainer>
   )
