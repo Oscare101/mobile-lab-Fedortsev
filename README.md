@@ -1,4 +1,4 @@
-# lab 4 mobile app by Fedortsev IO-81
+# lab 5 mobile app by Fedortsev IO-81
 
 check my variant `(8127 % 6 + 1)` = 4
 
