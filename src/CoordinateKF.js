@@ -6,7 +6,7 @@ let degrees = 4 // -90 90
 let min = 24 // 0 59
 let sec = 15 // 0 59
 let longmin, longsec, long
-const Coordinate = () => {
+const Direction = () => {
   longsec = (sec / 60) * 100
   longmin = (min + longsec / 100) / 60
   long = degrees + longmin
@@ -22,7 +22,7 @@ const CoordinateKF = () => {
         <Text>
           imput: {degrees}&deg;{min}&prime;{sec}&Prime;N
         </Text>
-        <Coordinate />
+        <Direction />
       </View>
     </View>
   )
