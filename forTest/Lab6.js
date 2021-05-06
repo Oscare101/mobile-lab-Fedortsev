@@ -76,10 +76,10 @@ var book = [
 
 export default function Lad6() {
   const [searchText, setSearchText] = useState('')
-  const [users, setUsers] = useState([])
-  const [filteredUsers, setFilteredUsers] = useState([])
+  const [books, setBooks] = useState([])
+  const [filteredBooks, setFilteredBooks] = useState([])
   useEffect(() => {
-    setUsers(book)
+    setBooks(book)
   }, [])
   return (
     <View style={{ flex: 1, paddingTop: 40 }}>
@@ -95,12 +95,12 @@ export default function Lad6() {
               onChangeText={(text) => {
                 setSearchText(text)
                 if (text === '') {
-                  return setFilteredUsers([])
+                  return setFilteredBooks([])
                 }
-                const filtered_book = users.filter((data) =>
+                const filtered_book = books.filter((data) =>
                   data.name.toLowerCase().startsWith(text.toLowerCase())
                 )
-                setFilteredUsers(filtered_book)
+                setFilteredBooks(filtered_book)
               }}
               returnKeyType="search"
             />
@@ -112,7 +112,7 @@ export default function Lad6() {
               <TouchableOpacity
                 onPress={() => {
                   setSearchText('')
-                  setFilteredUsers([])
+                  setFilteredBooks([])
                 }}
               >
                 <Icon name="cancel" size={24} color="#333" />
@@ -120,9 +120,9 @@ export default function Lad6() {
             )}
           </View>
         </View>
-        {filteredUsers.length > 0 ? (
+        {filteredBooks.length > 0 ? (
           <ScrollView>
-            {filteredUsers.map((book) => (
+            {filteredBooks.map((book) => (
               <TouchableOpacity>
                 <Item
                   img={book.img}
